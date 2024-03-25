@@ -1,0 +1,244 @@
+Graphcore
+
+*************************************************
+learning_rate = 0.03
+epochs = 10
+batch_size = 8
+
+TrainingModelWithLoss(
+  (model): Network(
+    (layer1): Block(
+      (conv): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer2): Block(
+      (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer3): Linear(in_features=1600, out_features=128, bias=True)
+    (layer3_act): ReLU()
+    (layer3_dropout): Dropout(p=0.5, inplace=False)
+    (layer4): Linear(in_features=128, out_features=10, bias=True)
+    (softmax): Softmax(dim=1)
+  )
+  (loss): CrossEntropyLoss()
+)
+Accuracy on test set: 98.74%
+
+*************************************************
+learning_rate = 0.01
+epochs = 15
+batch_size = 16
+
+Epochs: 100%|██████████| 10/10 [01:30<00:00,  9.04s/it]                         Graph compilation: 100%|██████████| 100/100 [00:00<00:00]
+ 85%|████████▍ | 106/125 [00:03<00:0TrainingModelWithLoss(
+  (model): Network(
+    (layer1): Block(
+      (conv): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer2): Block(
+      (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (relu): ReLU()
+    )
+    (layer3): Linear(in_features=1600, out_features=128, bias=True)
+    (layer3_act): ReLU()
+    (layer3_dropout): Dropout(p=0.5, inplace=False)
+    (layer4): Linear(in_features=128, out_features=10, bias=True)
+    (softmax): Softmax(dim=1)
+  )
+  (loss): CrossEntropyLoss()
+)
+Accuracy on test set: 97.80%
+
+===========================================================================
+Samba Nova
+
+***************************************************************************
+
+Model:  BertLarge
+Date:  03/21/24
+Time:  21:24
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Listing...
+sambaflow/focal,focal,now 1.17.7-27 amd64 [installed,upgradable to: 1.18.7-38]
+Machine State Before:
+Platform: DataScale SN30-8
+
+Physical Inventory:
+Component Name                        | Serial Number       | Inventory State | Functional State
+------------------------------------------------------------------------------------------------
+/NODE/XRDU_0/RDU_0                    | 205057B469B35895    | Present         | Online
+/NODE/XRDU_0/RDU_0/DDRCH_0/DIMM_A0    | 1F310A0             | Present         | Online
+/NODE/XRDU_0/RDU_0/DDRCH_1/DIMM_B0    | 1F31085             | Present         | Online
+/NODE/XRDU_0/RDU_0/DDRCH_2/DIMM_E0    | 1F3123D             | Present         | Online
+/NODE/XRDU_0/RDU_0/DDRCH_3/DIMM_F0    | 1F310E6             | Present         | Online
+/NODE/XRDU_0/RDU_0/DDRCH_4/DIMM_G0    | 1F6F66D             | Present         | Online
+/NODE/XRDU_0/RDU_0/DDRCH_5/DIMM_H0    | 1F6F8AE             | Present         | Online
+/NODE/XRDU_0/RDU_0/DDRCH_6/DIMM_C0    | 1F31058             | Present         | Online
+/NODE/XRDU_0/RDU_0/DDRCH_7/DIMM_D0    | 1F31185             | Present         | Online
+/NODE/XRDU_0/RDU_0/PCIE_0             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/PCIE_1             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/PCIE_2             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/PCIE_3             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/PCIE_4             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/PCIE_5             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/TILE_0             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/TILE_1             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/TILE_2             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/TILE_3             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/TILE_4             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/TILE_5             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/TILE_6             | N/A                 | Present         | Online
+/NODE/XRDU_0/RDU_0/TILE_7             | N/A                 | Present         | Online
+
+/NODE/XRDU_3/RDU_1/DDRCH_0/DIMM_J0    | 1F5BDBE             | Present         | Online
+/NODE/XRDU_3/RDU_1/DDRCH_1/DIMM_K0    | 1F5BC0D             | Present         | Online
+/NODE/XRDU_3/RDU_1/DDRCH_2/DIMM_N0    | 1F5BC99             | Present         | Online
+/NODE/XRDU_3/RDU_1/DDRCH_3/DIMM_P0    | 1F5BB68             | Present         | Online
+/NODE/XRDU_3/RDU_1/DDRCH_4/DIMM_Q0    | 1F5BC21             | Present         | Online
+/NODE/XRDU_3/RDU_1/DDRCH_5/DIMM_R0    | 1F5BC22             | Present         | Online
+/NODE/XRDU_3/RDU_1/DDRCH_6/DIMM_L0    | 1F5BC9C             | Present         | Online
+/NODE/XRDU_3/RDU_1/DDRCH_7/DIMM_M0    | 1F5BC17             | Present         | Online
+/NODE/XRDU_3/RDU_1/PCIE_0             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/PCIE_1             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/PCIE_2             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/PCIE_3             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/PCIE_4             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/PCIE_5             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/TILE_0             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/TILE_1             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/TILE_2             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/TILE_3             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/TILE_4             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/TILE_5             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/TILE_6             | N/A                 | Present         | Online
+/NODE/XRDU_3/RDU_1/TILE_7             | N/A                 | Present         | Online
+/NODE/XRDU_3/SW_0                     | N/A                 | Present         | Online
+/NODE/XRDU_3/SW_0/PORT_0              | N/A                 | Present         | Online
+/NODE/XRDU_3/SW_0/PORT_1              | N/A                 | Present         | Online
+/NODE/XRDU_3/SW_0/PORT_2              | N/A                 | Present         | Online
+/NODE/XRDU_3/SW_0/PORT_3              | N/A                 | Present         | Online
+/NODE/XRDU_3/SW_0/PORT_4              | N/A                 | Present         | Online
+/NODE/XRDU_3/SW_0/PORT_5              | N/A                 | Present         | Online
+/NODE/XRDU_3/SW_0/PORT_6              | N/A                 | Present         | Online
+/NODE/XRDU_3/SW_0/PORT_7              | N/A                 | Present         | Online
+/NODE/XRDU_3/SW_0/PORT_8              | N/A                 | Present         | Online
+/NODE/HOST/HIC_0/DPORT                | N/A                 | Present         | Online
+/NODE/HOST/HIC_1/DPORT                | N/A                 | Present         | Online
+/NODE/HOST/HIC_2/DPORT                | N/A                 | Present         | Online
+/NODE/HOST/HIC_3/DPORT                | N/A                 | Present         | Online
+Duration:  794
+
+=====================================================================================
+Cerebras
+
+***************************************************************
+batch size = 1024
+
+2024-03-25 20:29:04,000 INFO:   | Train Device=CSX, Step=100, Loss=9.48438, Rate=4922.00 samples/sec, GlobalRate=4922.00 samples/sec
+2024-03-25 20:29:25,028 INFO:   | Train Device=CSX, Step=200, Loss=8.35938, Rate=4890.66 samples/sec, GlobalRate=4895.74 samples/sec
+2024-03-25 20:29:46,156 INFO:   | Train Device=CSX, Step=300, Loss=7.91406, Rate=4864.20 samples/sec, GlobalRate=4879.24 samples/sec
+2024-03-25 20:30:07,404 INFO:   | Train Device=CSX, Step=400, Loss=7.54688, Rate=4837.27 samples/sec, GlobalRate=4864.12 samples/sec
+2024-03-25 20:30:28,515 INFO:   | Train Device=CSX, Step=500, Loss=7.46875, Rate=4845.20 samples/sec, GlobalRate=4861.39 samples/sec
+2024-03-25 20:30:49,777 INFO:   | Train Device=CSX, Step=600, Loss=7.39844, Rate=4827.71 samples/sec, GlobalRate=4853.77 samples/sec
+2024-03-25 20:31:10,934 INFO:   | Train Device=CSX, Step=700, Loss=7.35156, Rate=4835.16 samples/sec, GlobalRate=4851.82 samples/sec
+2024-03-25 20:31:32,143 INFO:   | Train Device=CSX, Step=800, Loss=7.25000, Rate=4830.96 samples/sec, GlobalRate=4848.85 samples/sec
+2024-03-25 20:31:53,454 INFO:   | Train Device=CSX, Step=900, Loss=7.21094, Rate=4815.39 samples/sec, GlobalRate=4843.94 samples/sec
+2024-03-25 20:32:14,747 INFO:   | Train Device=CSX, Step=1000, Loss=7.07812, Rate=4811.60 samples/sec, GlobalRate=4840.43 samples/sec
+2024-03-25 20:32:14,747 INFO:   Saving checkpoint at step 1000
+2024-03-25 20:32:49,942 INFO:   Saved checkpoint model_dir_bert_large_pytorch/checkpoint_1000.mdl
+2024-03-25 20:33:35,088 INFO:   Heartbeat thread stopped for wsjob-uilemzncqxdrvxbwldzdza.
+2024-03-25 20:33:35,095 INFO:   Training completed successfully!
+2024-03-25 20:33:35,095 INFO:   Processed 1024000 sample(s) in 211.551519184 seconds.
+
+***************************************************************
+batch size = 512
+
+2024-03-25 21:05:03,907 INFO:   | Train Device=CSX, Step=100, Loss=9.39062, Rate=2965.92 samples/sec, GlobalRate=2965.92 samples/sec
+2024-03-25 21:05:21,508 INFO:   | Train Device=CSX, Step=200, Loss=8.70312, Rate=2931.78 samples/sec, GlobalRate=2937.19 samples/sec
+2024-03-25 21:05:38,965 INFO:   | Train Device=CSX, Step=300, Loss=7.79688, Rate=2932.41 samples/sec, GlobalRate=2935.73 samples/sec
+2024-03-25 21:05:56,568 INFO:   | Train Device=CSX, Step=400, Loss=7.39062, Rate=2918.09 samples/sec, GlobalRate=2928.89 samples/sec
+2024-03-25 21:06:14,006 INFO:   | Train Device=CSX, Step=500, Loss=7.80469, Rate=2928.93 samples/sec, GlobalRate=2930.34 samples/sec
+2024-03-25 21:06:31,464 INFO:   | Train Device=CSX, Step=600, Loss=7.53125, Rate=2931.23 samples/sec, GlobalRate=2930.74 samples/sec
+2024-03-25 21:06:48,783 INFO:   | Train Device=CSX, Step=700, Loss=7.35156, Rate=2946.24 samples/sec, GlobalRate=2934.36 samples/sec
+2024-03-25 21:07:06,370 INFO:   | Train Device=CSX, Step=800, Loss=7.27344, Rate=2925.26 samples/sec, GlobalRate=2931.45 samples/sec
+2024-03-25 21:07:23,873 INFO:   | Train Device=CSX, Step=900, Loss=7.35938, Rate=2925.26 samples/sec, GlobalRate=2930.76 samples/sec
+2024-03-25 21:07:41,411 INFO:   | Train Device=CSX, Step=1000, Loss=7.12500, Rate=2921.71 samples/sec, GlobalRate=2929.62 samples/sec
+2024-03-25 21:07:41,412 INFO:   Saving checkpoint at step 1000
+2024-03-25 21:08:16,322 INFO:   Saved checkpoint model_dir_bert_large_pytorch/checkpoint_1000.mdl
+2024-03-25 21:08:54,193 INFO:   Heartbeat thread stopped for wsjob-42b6jybgjwxiebmysenut4.
+2024-03-25 21:08:54,199 INFO:   Training completed successfully!
+2024-03-25 21:08:54,200 INFO:   Processed 512000 sample(s) in 174.76677058 seconds.
+
+***************************************************************
+batch size = 2048
+
+2024-03-25 21:40:06,837 INFO:   | Train Device=CSX, Step=100, Loss=9.48438, Rate=6855.85 samples/sec, GlobalRate=6855.85 samples/sec
+2024-03-25 21:40:37,266 INFO:   | Train Device=CSX, Step=200, Loss=8.48438, Rate=6780.59 samples/sec, GlobalRate=6792.56 samples/sec
+2024-03-25 21:41:07,730 INFO:   | Train Device=CSX, Step=300, Loss=7.77344, Rate=6745.79 samples/sec, GlobalRate=6769.07 samples/sec
+2024-03-25 21:41:38,312 INFO:   | Train Device=CSX, Step=400, Loss=7.64062, Rate=6716.46 samples/sec, GlobalRate=6750.89 samples/sec
+2024-03-25 21:42:08,777 INFO:   | Train Device=CSX, Step=500, Loss=7.37500, Rate=6720.02 samples/sec, GlobalRate=6745.17 samples/sec
+2024-03-25 21:42:39,319 INFO:   | Train Device=CSX, Step=600, Loss=7.42188, Rate=6711.35 samples/sec, GlobalRate=6738.53 samples/sec
+2024-03-25 21:43:10,429 INFO:   | Train Device=CSX, Step=700, Loss=7.25000, Rate=6634.38 samples/sec, GlobalRate=6715.88 samples/sec
+2024-03-25 21:43:40,838 INFO:   | Train Device=CSX, Step=800, Loss=7.12500, Rate=6694.64 samples/sec, GlobalRate=6718.24 samples/sec
+2024-03-25 21:44:11,371 INFO:   | Train Device=CSX, Step=900, Loss=7.25000, Rate=6702.35 samples/sec, GlobalRate=6717.04 samples/sec
+2024-03-25 21:44:41,597 INFO:   | Train Device=CSX, Step=1000, Loss=7.14844, Rate=6746.39 samples/sec, GlobalRate=6722.87 samples/sec
+2024-03-25 21:44:41,597 INFO:   Saving checkpoint at step 1000
+2024-03-25 21:45:16,398 INFO:   Saved checkpoint model_dir_bert_large_pytorch/checkpoint_1000.mdl
+2024-03-25 21:46:11,821 INFO:   Heartbeat thread stopped for wsjob-qc8lj8zmamgmljigawz27q.
+2024-03-25 21:46:11,828 INFO:   Training completed successfully!
+2024-03-25 21:46:11,829 INFO:   Processed 2048000 sample(s) in 304.631862249 seconds.
+
+======================================================================================
+Groq
+
+batch_size = 1
+max_seq_length = 256
+
+Batch_size <> 1 generates errors related to shapes.  So I kept it as 1.  I simply changed max_seq_length from 128 to 256.
+
+Sample output:
+
+(groqflow) atang@groq-r01-gn-08:~/groqflow/proof_points/natural_language_processing/bert$ python bert_tiny.py
+
+Warning: build_model() discovered a cached build of bert_tiny, but decided to rebuild for the following reasons: 
+         
+         - Input shape of model "bert_tiny" changed from {'attention_mask': (2, 64), 'input_ids': (2, 64)} to {'attention_mask': (1, 256), 'input_ids': (1, 256)} since the last time it was built. 
+         
+         build_model() will now rebuild your model to ensure correctness. You can change this policy by setting the build_model(rebuild=...) argument.
+
+
+
+Building "bert_tiny"
+    ✓ Exporting PyTorch to ONNX   
+    ✓ Optimizing ONNX file   
+    ✓ Checking for Op support   
+    ✓ Converting to FP16   
+    ✓ Compiling model   
+    ✓ Assembling model   
+
+Woohoo! Saved to ~/.cache/groqflow/bert_tiny
+Preprocessing data.
+
+Info: No inputs received for benchmark. Using the inputs provided during model compilation.
+/home/atang/groqflow/groqflow/groqmodel/execute.py:87: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  return tsp_runner(**example)
+Running inference on GroqChip.
+/home/atang/groqflow/groqflow/groqmodel/execute.py:87: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  return tsp_runner(**example)
+Running inference using PyTorch model (CPU).
+100%|██████████████████████████████████████| 2210/2210 [00:09<00:00, 241.03it/s]
++--------+----------+-------------------------+----------------+----------------------+-------------+
+| Source | Accuracy | end-to-end latency (ms) | end-to-end IPS | on-chip latency (ms) | on-chip IPS |
++--------+----------+-------------------------+----------------+----------------------+-------------+
+|  cpu   |  77.47%  |           4.15          |     240.96     |          --          |      --     |
+|  groq  |  77.47%  |           0.09          |    11134.88    |         0.05         |   19988.90  |
++--------+----------+-------------------------+----------------+----------------------+-------------+
+
